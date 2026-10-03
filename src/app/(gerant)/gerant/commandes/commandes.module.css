@@ -1,0 +1,62 @@
+/* Liste des commandes sur téléphone : chaque ligne du tableau devient une carte
+   (n° et date | total, client | canal, statut | paiement), sans défilement horizontal. */
+@media (max-width: 640px) {
+  table.orders,
+  table.orders tbody {
+    display: block;
+  }
+
+  table.orders thead {
+    display: none;
+  }
+
+  table.orders tr {
+    display: grid;
+    grid-template-areas:
+      "num total"
+      "client channel"
+      "status pay";
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px 16px;
+    padding: 16px;
+    border-bottom: 1px solid var(--n-200);
+  }
+
+  table.orders tr:last-child {
+    border-bottom: none;
+  }
+
+  table.orders td {
+    display: block;
+    padding: 0;
+    border: none;
+  }
+
+  table.orders td:nth-child(1) {
+    grid-area: num;
+  }
+
+  table.orders td:nth-child(2) {
+    grid-area: client;
+  }
+
+  table.orders td:nth-child(3) {
+    grid-area: channel;
+    text-align: right;
+  }
+
+  table.orders td:nth-child(4) {
+    grid-area: status;
+  }
+
+  table.orders td:nth-child(5) {
+    grid-area: pay;
+    text-align: right;
+  }
+
+  table.orders td:nth-child(6) {
+    grid-area: total;
+    align-self: start;
+    font-size: 15px;
+  }
+}

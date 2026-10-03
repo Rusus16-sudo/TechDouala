@@ -1,0 +1,73 @@
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 16px 64px;
+}
+
+.h1 {
+  margin-bottom: 24px;
+  font-size: 32px;
+  color: var(--violet);
+}
+
+.section {
+  margin-bottom: 32px;
+  padding: 20px;
+  background: var(--blanc);
+  border: 1px solid var(--n-200);
+  border-radius: var(--radius-lg);
+}
+
+.section h2 {
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+}
+
+.swatch code {
+  color: var(--n-600);
+}
+
+.chip {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 6px;
+  border: 1px solid var(--n-200);
+  border-radius: var(--radius-md);
+}
+
+.display {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.body {
+  margin-top: 12px;
+  font-size: 18px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 240px));
+  gap: 12px;
+}

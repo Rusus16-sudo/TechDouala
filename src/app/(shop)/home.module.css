@@ -1,0 +1,416 @@
+/* Accueil : grandes respirations, fond blanc, noir pour le hero et les avis. */
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  margin-top: 72px;
+}
+
+.sectionHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.seeAll {
+  margin-left: auto;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--violet);
+}
+
+.seeAll:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------------------------------------------------------------- Engagements */
+.reassurance {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--n-200);
+  list-style: none;
+}
+
+.reassurance li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.reassuranceIcon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--n-900);
+}
+
+.reassurance strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.reassurance p {
+  font-size: 13px;
+  color: var(--n-600);
+}
+
+
+/* ---------------------------------------------------------------- Nos univers */
+.universes {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  list-style: none;
+}
+
+.universe {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  padding: 16px 16px 18px;
+  border-radius: var(--radius-xl);
+  background: var(--n-100);
+  transition: background-color 180ms ease;
+}
+
+.universe:hover {
+  background: #EDEDF0;
+}
+
+.universeMedia {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  color: var(--n-700);
+}
+
+.universePhoto {
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.universeName {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ---------------------------------------------------------------- Grilles produits */
+.grid4 {
+  display: grid;
+  gap: 32px 20px;
+}
+
+.grid4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+
+/* ---------------------------------------------------------------- Pourquoi TechDouala */
+
+/* ---------------------------------------------------------------- Actualités */
+.news {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.newsCard {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: var(--n-100);
+}
+
+.newsImg {
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+
+.newsImg img {
+  object-fit: cover;
+}
+
+.newsBody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px;
+}
+
+.newsBody h3 {
+  font-size: 18px;
+}
+
+.newsBody p {
+  font-size: 14px;
+  color: var(--n-700);
+}
+
+.newsCta {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--violet);
+}
+
+a.newsCard:hover .newsCta {
+  text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------- Avis */
+.reviews {
+  margin-top: 88px;
+  padding: 64px 0;
+  background: var(--noir);
+  color: var(--blanc);
+}
+
+.reviewList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  margin-top: 32px;
+  list-style: none;
+}
+
+.reviewList li {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.reviewStars {
+  display: flex;
+  gap: 2px;
+  color: var(--succes);
+}
+
+.reviewList blockquote {
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.reviewAuthor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  font-size: 14px;
+}
+
+.reviewAuthor strong {
+  display: block;
+  font-weight: 600;
+}
+
+.reviewAuthor span span {
+  color: rgb(255 255 255 / 0.6);
+}
+
+.avatar {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.14);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------------- Conseil */
+/* Dernier bloc de l'accueil : collé au pied de page, comme la bande newsletter de la maquette. */
+.advice {
+  margin-top: 88px;
+  margin-bottom: -96px;
+  background: var(--n-100);
+}
+
+/* Sans avis, le bloc conseil suit directement une section blanche. */
+.reviews + .advice {
+  margin-top: 0;
+}
+
+.adviceInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 48px;
+  min-height: 300px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.adviceText p {
+  max-width: 440px;
+  margin: 12px 0 24px;
+  font-size: 16px;
+  color: var(--n-700);
+}
+
+.collage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 240px;
+}
+
+.collageItem {
+  position: relative;
+  width: 180px;
+  height: 220px;
+  margin: 0 -18px;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: var(--blanc);
+  box-shadow: var(--shadow-md);
+}
+
+.collageItem:nth-child(2) {
+  z-index: 1;
+  transform: translateY(20px);
+}
+
+.collagePhoto {
+  object-fit: contain;
+  padding: 16px;
+}
+
+/* ---------------------------------------------------------------- Catalogue vide */
+.soon {
+  padding: 48px 32px;
+  border-radius: var(--radius-xl);
+  background: var(--n-100);
+  text-align: center;
+}
+
+.soon h2 {
+  font-size: 24px;
+}
+
+.soon p {
+  max-width: 460px;
+  margin: 8px auto 0;
+  color: var(--n-700);
+}
+
+/* ---------------------------------------------------------------- Responsive */
+@media (max-width: 1100px) {
+  .reassurance {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .universes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .grid4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .news,
+  .reviewList {
+    grid-template-columns: 1fr;
+  }
+
+  .adviceInner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .section {
+    margin-top: 48px;
+  }
+
+  .sectionTitle {
+    font-size: 22px;
+  }
+
+  .seeAll {
+    font-size: 14px;
+  }
+
+
+  .reassurance {
+    gap: 16px;
+    padding: 24px 0;
+  }
+
+  .reassurance li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Rayons : défilement horizontal au pouce */
+  .universes {
+    grid-auto-columns: 42%;
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    margin: 0 -16px;
+    padding: 0 16px 4px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .universes li {
+    scroll-snap-align: start;
+  }
+
+  .grid4 {
+    gap: 24px 12px;
+  }
+
+  .reviews,
+  .advice {
+    margin-top: 56px;
+  }
+
+  .advice {
+    margin-bottom: -64px;
+  }
+
+  .collage {
+    height: 190px;
+  }
+
+  .collageItem {
+    width: 130px;
+    height: 170px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .universe {
+    transition: none;
+  }
+}

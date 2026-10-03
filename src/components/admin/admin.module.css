@@ -1,0 +1,386 @@
+/* Styles partagés de l'espace gérant (en-têtes, cartes, tableaux, formulaires). */
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: clamp(26px, 3vw, 34px);
+}
+
+.subtitle {
+  margin-top: 2px;
+  color: var(--n-600);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card {
+  padding: 24px;
+  border: 1px solid var(--n-200);
+  border-radius: var(--radius-lg);
+  background: var(--blanc);
+}
+
+.card + .card {
+  margin-top: 20px;
+}
+
+.cardTitle {
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+/* Tableaux */
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--n-200);
+  border-radius: var(--radius-lg);
+  background: var(--blanc);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--n-200);
+  background: var(--n-50);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  color: var(--n-600);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--n-200);
+  vertical-align: middle;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr:hover {
+  background: #FAFAFC;
+}
+
+/* Chargement d'une page (loading.js) : blocs gris qui respirent */
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.skeletonTitle,
+.skeletonLine,
+.skeletonCard {
+  display: block;
+  border-radius: var(--radius-md);
+  background: var(--n-200);
+  animation: breathe 1.2s ease-in-out infinite alternate;
+}
+
+.skeletonTitle {
+  width: min(320px, 70%);
+  height: 36px;
+}
+
+.skeletonLine {
+  width: min(220px, 50%);
+  height: 16px;
+  margin-bottom: 18px;
+}
+
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 20px;
+}
+
+.skeletonCard {
+  height: 280px;
+  border-radius: var(--radius-lg);
+}
+
+@keyframes breathe {
+  to {
+    opacity: 0.45;
+  }
+}
+
+@media (max-width: 900px) {
+  .skeletonGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeletonTitle,
+  .skeletonLine,
+  .skeletonCard {
+    animation: none;
+  }
+}
+
+/* Ligne entièrement cliquable : le lien principal s'étend sur toute la ligne */
+.rowLink {
+  position: relative;
+}
+
+.rowTarget::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.rowLink:hover .rowTarget {
+  color: var(--violet);
+}
+
+/* Bouton posé dans une ligne cliquable : reste cliquable pour lui-même */
+.aboveRow {
+  position: relative;
+  z-index: 1;
+  margin-top: 8px;
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+  text-align: right !important;
+  white-space: nowrap;
+}
+
+.muted {
+  color: var(--n-600);
+}
+
+.strong {
+  font-weight: 600;
+}
+
+.empty {
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--n-600);
+}
+
+.empty strong {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--n-900);
+}
+
+/* Barre de filtres */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.toolbar input,
+.toolbar select {
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1.5px solid var(--n-200);
+  border-radius: var(--radius-md);
+  background: var(--blanc);
+  outline: none;
+}
+
+.toolbar input:focus,
+.toolbar select:focus {
+  border-color: var(--violet);
+}
+
+.toolbar input[type="search"] {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Formulaires */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field > label,
+.label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.field input,
+.field select,
+.field textarea,
+.input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1.5px solid var(--n-200);
+  border-radius: var(--radius-md);
+  background: var(--blanc);
+  outline: none;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus,
+.input:focus {
+  border-color: var(--violet);
+  box-shadow: 0 0 0 3px var(--violet-50);
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--n-600);
+}
+
+.error {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--danger);
+}
+
+.alert {
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: var(--danger-50);
+  font-size: 14px;
+  color: var(--danger);
+}
+
+.success {
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: var(--succes-50);
+  font-size: 14px;
+  color: var(--succes-700);
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--violet);
+}
+
+.iconBtn {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--n-200);
+  border-radius: var(--radius-md);
+  background: var(--blanc);
+  color: var(--n-700);
+  cursor: pointer;
+}
+
+.iconBtn:hover {
+  border-color: var(--violet);
+  color: var(--violet);
+}
+
+.iconBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.danger:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.linkBtn {
+  border: none;
+  background: none;
+  font-weight: 600;
+  color: var(--violet);
+  cursor: pointer;
+}
+
+.linkBtn:hover {
+  text-decoration: underline;
+}
+
+.stickyBar {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin: 0 -32px -32px;
+  padding: 16px 32px;
+  border-top: 1px solid var(--n-200);
+  background: rgb(255 255 255 / 0.95);
+  backdrop-filter: blur(8px);
+}
+
+@media (max-width: 900px) {
+  .grid2,
+  .grid3 {
+    grid-template-columns: 1fr;
+  }
+
+  .stickyBar {
+    margin: 0 -16px -48px;
+    padding: 12px 16px;
+  }
+}
+
+/* Listes déroulantes des barres de filtres : largeur du contenu, pas toute la ligne. */
+.toolbar .toolbarSelect {
+  width: auto;
+  min-width: 190px;
+  min-height: 42px;
+}

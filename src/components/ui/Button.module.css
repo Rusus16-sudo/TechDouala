@@ -1,0 +1,115 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 150ms ease, box-shadow 150ms ease, transform 100ms ease;
+}
+
+/* Petit téléphone : un long libellé passe à la ligne au lieu de sortir de l'écran. */
+@media (max-width: 480px) {
+  .btn {
+    line-height: 1.25;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.md {
+  min-height: 48px;
+  padding: 0 20px;
+  font-size: 15px;
+}
+
+.sm {
+  min-height: 36px;
+  padding: 0 14px;
+  font-size: 13px;
+  border-radius: var(--radius-sm);
+}
+
+.block {
+  display: flex;
+  width: 100%;
+}
+
+.primary {
+  background: var(--violet);
+  color: var(--blanc);
+}
+
+.primary:hover {
+  background: var(--violet-600);
+}
+
+.secondary {
+  background: var(--blanc);
+  color: var(--violet);
+  border-color: var(--violet);
+}
+
+.secondary:hover {
+  background: var(--violet-50);
+}
+
+.success {
+  background: var(--succes-700);
+  color: var(--blanc);
+}
+
+.alert {
+  background: var(--alerte);
+  color: var(--alerte-900);
+}
+
+/* Sur fonds sombres (hero, blocs de mise en avant) */
+.light {
+  background: var(--blanc);
+  color: var(--n-900);
+}
+
+.light:hover {
+  background: var(--n-100);
+}
+
+.outline-light {
+  background: transparent;
+  color: var(--blanc);
+  border-color: rgb(255 255 255 / 0.6);
+}
+
+.outline-light:hover {
+  background: rgb(255 255 255 / 0.1);
+}
+
+.lg {
+  min-height: 56px;
+  padding: 0 28px;
+  font-size: 16px;
+}
+
+.ghost {
+  background: transparent;
+  color: var(--violet);
+}
+
+.ghost:hover {
+  background: var(--violet-50);
+}

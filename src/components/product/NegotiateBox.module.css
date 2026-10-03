@@ -1,0 +1,95 @@
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--violet);
+  cursor: pointer;
+}
+
+.trigger:hover {
+  text-decoration: underline;
+}
+
+.box {
+  padding: 14px;
+  border: 1.5px solid var(--violet-100);
+  border-radius: var(--radius-lg);
+  background: var(--violet-50);
+}
+
+.title {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.field input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 56px 0 12px;
+  border: 1.5px solid var(--n-200);
+  border-radius: var(--radius-md);
+  background: var(--blanc);
+  font-size: 17px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  outline: none;
+}
+
+.field input:focus {
+  border-color: var(--violet);
+}
+
+.suffix {
+  position: absolute;
+  right: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--n-600);
+}
+
+.send {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 0 16px;
+  border-radius: var(--radius-md);
+  background: #25D366;
+  font-weight: 600;
+  color: #06331A;
+}
+
+.send:hover {
+  filter: brightness(1.05);
+}
+
+.hint {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--n-700);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

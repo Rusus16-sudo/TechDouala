@@ -1,0 +1,146 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filters a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1.5px solid var(--n-200);
+  border-radius: var(--radius-full);
+  background: var(--blanc);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.filters a span {
+  padding: 0 7px;
+  border-radius: var(--radius-full);
+  background: var(--n-50);
+  font-size: 12px;
+  color: var(--n-700);
+}
+
+.filters .filterActive {
+  border-color: var(--violet);
+  background: var(--violet);
+  color: var(--blanc);
+}
+
+.filters .filterActive span {
+  background: rgb(255 255 255 / 0.2);
+  color: var(--blanc);
+}
+
+.progress {
+  width: 120px;
+  height: 8px;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: var(--n-200);
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  background: var(--violet);
+}
+
+/* Fiche crédit */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 20px;
+}
+
+.schedule {
+  list-style: none;
+}
+
+.schedule li {
+  display: grid;
+  grid-template-columns: 28px 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--n-200);
+  font-size: 14px;
+}
+
+.num {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--n-50);
+  font-weight: 700;
+}
+
+.numPaid {
+  background: var(--succes-700);
+  color: var(--blanc);
+}
+
+.pay {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.payBtn {
+  padding: 6px 12px;
+  border: 1.5px solid var(--n-200);
+  border-radius: var(--radius-full);
+  background: var(--blanc);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.payBtn:hover {
+  border-color: var(--succes-700);
+  color: var(--succes-700);
+}
+
+.relances {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.relanceLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  background: var(--n-50);
+  font-weight: 600;
+  color: var(--n-900);
+}
+
+.relanceLink:hover {
+  background: var(--violet-50);
+  color: var(--violet);
+}
+
+.message {
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background: var(--n-50);
+  font-size: 13px;
+  color: var(--n-700);
+  white-space: pre-wrap;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

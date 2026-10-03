@@ -1,0 +1,506 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 400px;
+  align-items: start;
+  gap: 40px;
+}
+
+.title {
+  margin-bottom: 24px;
+  font-size: clamp(28px, 3.5vw, 40px);
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.step {
+  padding: 28px;
+  border: 1px solid var(--n-200);
+  border-radius: var(--radius-xl);
+  background: var(--blanc);
+}
+
+.step h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.step h2 span {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--violet);
+  color: var(--blanc);
+  font-size: 16px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Champs */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--n-200);
+  border-radius: var(--radius-md);
+  background: var(--blanc);
+  outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--violet);
+  box-shadow: 0 0 0 3px var(--violet-50);
+}
+
+.field [aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.field select:disabled {
+  background: var(--n-50);
+  color: var(--n-600);
+}
+
+.prefixed {
+  display: flex;
+}
+
+.prefixed span {
+  display: grid;
+  place-items: center;
+  padding: 0 12px;
+  border: 1.5px solid var(--n-200);
+  border-right: none;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  background: var(--n-50);
+  font-weight: 600;
+  color: var(--n-700);
+}
+
+.prefixed input {
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--n-600);
+}
+
+.error {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--danger);
+}
+
+.account {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--n-600);
+}
+
+.account a,
+.legal a {
+  font-weight: 600;
+  color: var(--violet);
+  text-decoration: underline;
+}
+
+/* Cartes de choix (règlement) */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 1.5px solid var(--n-200);
+  border-radius: var(--radius-lg);
+  color: var(--violet);
+  cursor: pointer;
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+
+.card:hover {
+  border-color: var(--violet-100);
+}
+
+.card input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.card:has(input:checked) {
+  border-color: var(--violet);
+  background: var(--violet-50);
+  box-shadow: inset 0 0 0 1px var(--violet);
+}
+
+.card:has(input:focus-visible) {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  color: var(--n-600);
+}
+
+.cardText strong {
+  font-size: 15px;
+  color: var(--n-900);
+}
+
+.cardLocked {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.lock {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--n-700);
+}
+
+.noteField {
+  margin-top: 20px;
+}
+
+.summary {
+  position: sticky;
+  top: 92px; /* sous l'en-tête collant (68 px) */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid var(--n-200);
+  border-radius: var(--radius-xl);
+  background: var(--blanc);
+  box-shadow: 0 16px 40px rgb(17 24 39 / 0.06);
+}
+
+.summary h2 {
+  font-size: 22px;
+}
+
+.lines {
+  display: grid;
+  gap: 14px;
+  list-style: none;
+}
+
+.lines li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.lineThumb {
+  position: relative;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--n-50);
+  color: var(--n-600);
+}
+
+.lineImg {
+  object-fit: contain;
+  padding: 4px;
+  border-radius: inherit; /* pas d'overflow: hidden, le badge de quantité dépasse */
+  mix-blend-mode: multiply;
+}
+
+.lineQty {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  display: grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: var(--n-900);
+  color: var(--blanc);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.lineName {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+.lineName small {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--n-600);
+}
+
+.amounts {
+  padding-top: 14px;
+  border-top: 1px solid var(--n-200);
+}
+
+.amounts div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+.amounts dt {
+  color: var(--n-600);
+}
+
+.amounts dd {
+  font-weight: 600;
+}
+
+.total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--n-200);
+}
+
+.total strong {
+  font-family: var(--font-display);
+  font-size: 28px;
+}
+
+.alert {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background: var(--danger-50);
+  font-size: 14px;
+  color: var(--danger);
+}
+
+.alert svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.legal {
+  font-size: 12px;
+  color: var(--n-600);
+}
+
+.legal svg {
+  vertical-align: -1px;
+}
+
+.loading {
+  min-height: 60vh;
+}
+
+/* Code promo */
+.promo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.promoRow {
+  display: flex;
+  gap: 8px;
+}
+
+.promoRow input {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1.5px dashed var(--n-200);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  outline: none;
+}
+
+.promoRow input:focus {
+  border-color: var(--violet);
+  border-style: solid;
+}
+
+.promoRow button {
+  padding: 0 16px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--n-900);
+  color: var(--blanc);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.promoRow button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.promoApplied {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: var(--succes-50);
+  font-size: 14px;
+  color: var(--succes-700);
+}
+
+.promoApplied span {
+  flex: 1;
+}
+
+.promoApplied button {
+  display: grid;
+  place-items: center;
+  border: none;
+  background: none;
+  color: var(--succes-700);
+  cursor: pointer;
+}
+
+.discountRow dt,
+.discountRow dd {
+  color: var(--succes-700) !important;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.emptyCart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 64px 16px;
+  text-align: center;
+}
+
+.emptyCart p {
+  margin-bottom: 8px;
+  color: var(--n-600);
+}
+
+@media (max-width: 1024px) {
+  /* minmax(0, …) : la colonne rétrécit avec l'écran au lieu de s'élargir à son contenu */
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .summary {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .step {
+    padding: 20px;
+  }
+
+  .grid2,
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Aperçu de l'échéancier à crédit */
+.creditPlan {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid var(--violet-100);
+  border-radius: var(--radius-lg);
+  background: var(--violet-50);
+}
+
+.creditTitle {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.creditPlan ul {
+  list-style: none;
+  font-size: 14px;
+}
+
+.creditPlan li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 0;
+}
+
+.creditPlan strong {
+  font-family: var(--font-display);
+  font-size: 17px;
+  color: var(--violet);
+}
+
+.creditPlan .hint {
+  margin-top: 8px;
+}

@@ -1,0 +1,175 @@
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 8px 0 28px;
+}
+
+.head h1 {
+  font-size: clamp(30px, 4vw, 44px);
+}
+
+.lead {
+  max-width: 560px;
+  margin-top: 8px;
+  color: var(--n-600);
+}
+
+.statut {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--n-600);
+}
+
+.credits {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+/* Exemple d'échéancier : une case par paiement, la largeur suit la part du prix (40 % puis 6 × 10 %) */
+.example {
+  padding: 32px;
+  border-radius: var(--radius-xl);
+  background: var(--n-100);
+}
+
+.example h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: 4fr repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 28px;
+  list-style: none;
+}
+
+.timeline li {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  min-width: 0;
+  min-height: 120px;
+  padding: 16px 14px;
+  border-radius: 10px;
+  background: var(--blanc);
+}
+
+.timeline .now {
+  padding: 20px 22px;
+  background: var(--violet);
+  color: var(--blanc);
+}
+
+.when {
+  font-size: 13px;
+  color: var(--n-600);
+}
+
+.now .when {
+  color: rgb(255 255 255 / 0.8);
+}
+
+.timeline strong {
+  font-size: 15px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.now strong {
+  font-family: var(--font-display);
+  font-size: 30px;
+  letter-spacing: -0.02em;
+}
+
+/* Règles du crédit : liste simple, sans cartes */
+.rules {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 48px;
+  margin-top: 40px;
+}
+
+.rules div {
+  padding: 18px 0;
+  border-top: 1px solid var(--n-200);
+}
+
+.rules dt {
+  font-weight: 600;
+}
+
+.rules dd {
+  margin-top: 4px;
+  color: var(--n-600);
+}
+
+.cta {
+  margin-top: 48px;
+  padding: 40px;
+  border-radius: var(--radius-xl);
+  background: var(--noir);
+  color: rgb(255 255 255 / 0.72);
+}
+
+.cta h2 {
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  color: var(--blanc);
+}
+
+.cta p {
+  max-width: 520px;
+  margin-top: 8px;
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.legal {
+  margin-top: 24px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.legal a {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .timeline {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .timeline .now {
+    grid-column: 1 / -1;
+  }
+
+  .timeline li {
+    min-height: 0;
+  }
+
+  .rules {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .example,
+  .cta {
+    padding: 24px 18px;
+  }
+}

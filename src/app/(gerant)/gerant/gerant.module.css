@@ -1,0 +1,168 @@
+.shell {
+  display: grid;
+  grid-template-columns: 248px minmax(0, 1fr);
+  min-height: 100dvh;
+  background: #F4F5F8;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100dvh;
+  /* Sur un écran d'ordinateur portable court, le menu reste atteignable. */
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding: 24px 16px;
+  background: var(--n-900);
+  color: var(--blanc);
+}
+
+/* Même logotype que la boutique : le nom seul, « Douala » en violet éclairci (lisible sur fond sombre). */
+.logo {
+  padding: 4px 8px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.logo span {
+  color: #A58BFF;
+}
+
+.me {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background: rgb(255 255 255 / 0.06);
+}
+
+.avatar {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.14);
+  color: var(--blanc);
+  font-weight: 700;
+}
+
+.meText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  font-size: 13px;
+}
+
+.meText strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meText span {
+  color: rgb(255 255 255 / 0.6);
+}
+
+.sideActions {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: -12px;
+}
+
+.sideLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 14px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: none;
+  font-size: 13px;
+  color: rgb(255 255 255 / 0.6);
+  cursor: pointer;
+}
+
+.sideLink:hover {
+  color: var(--blanc);
+}
+
+.content {
+  min-width: 0;
+  padding: 32px;
+}
+
+/* Téléphone et tablette : barre compacte collée en haut.
+   Ligne 1 : logo + actions en icônes ; ligne 2 : onglets qui défilent au doigt. */
+@media (max-width: 900px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    z-index: 20;
+    display: grid;
+    grid-template-areas:
+      "logo actions"
+      "nav nav";
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 8px 12px;
+    height: auto;
+    overflow: visible;
+    padding: 10px 12px 10px 16px;
+  }
+
+  .logo {
+    grid-area: logo;
+    padding: 0;
+    font-size: 20px;
+  }
+
+  .sidebar > nav {
+    grid-area: nav;
+    margin: 0 -12px 0 -16px;
+    padding: 0 12px 0 16px;
+  }
+
+  .me {
+    display: none;
+  }
+
+  .sideActions {
+    grid-area: actions;
+    flex-direction: row;
+    gap: 4px;
+    margin-top: 0;
+  }
+
+  .sideLink {
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    color: rgb(255 255 255 / 0.75);
+  }
+
+  .sideLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .content {
+    padding: 20px 16px 48px;
+  }
+}

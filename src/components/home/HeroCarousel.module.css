@@ -1,0 +1,269 @@
+.hero {
+  overflow: hidden;
+  background: var(--noir);
+  color: var(--blanc);
+  touch-action: pan-y; /* le glissement horizontal change de téléphone, le vertical fait défiler la page */
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Les diapositives sont empilées : la hauteur reste celle de la plus haute, rien ne saute. */
+.stage {
+  display: grid;
+}
+
+.slide {
+  display: grid;
+  grid-area: 1 / 1;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: 48px;
+  min-height: 500px;
+  padding-top: 56px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 600ms ease, visibility 0s linear 600ms;
+}
+
+.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 600ms ease, visibility 0s;
+}
+
+.text {
+  max-width: 520px;
+}
+
+.textOnly {
+  grid-template-columns: 1fr;
+  min-height: 420px;
+  padding-bottom: 56px;
+}
+
+.title {
+  font-size: clamp(40px, 5.2vw, 64px);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.lead {
+  max-width: 440px;
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: rgb(255 255 255 / 0.72);
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 28px;
+  font-size: 20px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.price span {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(255 255 255 / 0.6);
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+/* Le téléphone posé sur son socle clair : toutes les photos du catalogue y tiennent. */
+.media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
+  max-height: 460px;
+  width: 100%;
+  justify-self: end;
+  overflow: hidden;
+  border-radius: 32px;
+  background: radial-gradient(circle at 50% 42%, var(--blanc) 0%, var(--n-100) 70%);
+}
+
+.photo {
+  object-fit: contain;
+  padding: 36px;
+  mix-blend-mode: multiply;
+}
+
+/* Commandes : flèches, points, pause */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 28px;
+  padding-bottom: 40px;
+}
+
+.round {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgb(255 255 255 / 0.3);
+  border-radius: 50%;
+  background: none;
+  color: var(--blanc);
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.round:hover {
+  border-color: var(--blanc);
+  background: rgb(255 255 255 / 0.1);
+}
+
+.round:focus-visible,
+.dot:focus-visible {
+  outline: 2px solid var(--blanc);
+  outline-offset: 2px;
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+/* Zone de clic de 32 px, repère visuel de 8 px (24 px pour le téléphone affiché). */
+.dot {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 40px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.dot::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: rgb(255 255 255 / 0.4);
+  transition: width 250ms ease, background-color 250ms ease;
+}
+
+.dot:hover::before {
+  background: rgb(255 255 255 / 0.7);
+}
+
+.dot[aria-current="true"]::before {
+  width: 24px;
+  background: var(--blanc);
+}
+
+/* Entrée de chaque téléphone : le texte monte ligne par ligne, la photo se pose sur son socle.
+   Seul mouvement automatique de la page ; il rejoue à chaque changement de diapositive. */
+.active .title,
+.active .lead,
+.active .price,
+.active .ctas {
+  animation: rise 640ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.active .lead {
+  animation-delay: 70ms;
+}
+
+.active .price {
+  animation-delay: 140ms;
+}
+
+.active .ctas {
+  animation-delay: 210ms;
+}
+
+.active .photo {
+  animation: land 900ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@keyframes land {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.94);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  .active,
+  .dot::before {
+    transition: none;
+  }
+
+  .active .title,
+  .active .lead,
+  .active .price,
+  .active .ctas,
+  .active .photo {
+    animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .slide {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    min-height: 0;
+    padding-top: 40px;
+  }
+
+  .media {
+    justify-self: stretch;
+    max-height: 360px;
+  }
+
+  .controls {
+    justify-content: center;
+    padding-bottom: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+}

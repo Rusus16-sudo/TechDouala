@@ -1,0 +1,31 @@
+.avatar {
+  display: inline-grid;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: var(--radius-full);
+  background: var(--violet);
+  color: var(--blanc);
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.bubble {
+  padding: 10px 14px;
+  background: var(--violet-50);
+  border-radius: 4px var(--radius-lg) var(--radius-lg) var(--radius-lg);
+  font-size: 14px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--violet);
+}
+
+.text {
+  color: var(--n-900);
+}

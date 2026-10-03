@@ -1,5 +1,0 @@
-  const handleAddToCart = (productName: string, productId: number) => {
-    setCartItems((prev) => [...prev, productId]);
-    setCartNotification(`${productName} ajoute au panier!`);
-    setTimeout(() => setCartNotification(null), 2000);
-  };

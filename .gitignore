@@ -33,6 +33,9 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# documents internes (cahier des charges), gardés hors du dépôt public
+/cahier_des_charges_*.pdf
+
 # vercel
 .vercel
 

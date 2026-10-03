@@ -1,0 +1,55 @@
+/* Visuel de remplacement quand un produit n'a pas encore de photo.
+   Volontairement calme : le produit et son prix doivent rester les éléments forts. */
+.visual {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: linear-gradient(170deg, #F6F7FA 0%, #E9ECF3 100%);
+}
+
+.glow {
+  position: absolute;
+  bottom: -35%;
+  left: 50%;
+  width: 78%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--tint, rgb(106 64 255 / 0.12));
+  filter: blur(36px);
+  transform: translateX(-50%);
+}
+
+.device {
+  position: relative;
+  height: 68%;
+  filter: drop-shadow(0 14px 22px rgb(17 24 39 / 0.18));
+}
+
+.body {
+  fill: var(--blanc);
+  stroke: rgb(17 24 39 / 0.12);
+  stroke-width: 1.5;
+}
+
+.screen {
+  fill: #2A2E39;
+}
+
+.notch {
+  fill: rgb(255 255 255 / 0.3);
+}
+
+/* Tailles : carte, fiche produit, vitrine */
+.sm .device {
+  height: 62%;
+}
+
+.md .device {
+  height: 66%;
+}
+
+.lg .device {
+  height: 82%;
+}

@@ -1,0 +1,46 @@
+.wrap {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.label {
+  margin-right: 4px;
+  font-size: 13px;
+  color: var(--n-600);
+}
+
+
+.unit {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--n-900);
+  color: var(--blanc);
+}
+
+.num {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.suffix {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+@media (max-width: 640px) {
+  .label {
+    display: none;
+  }
+
+  .unit {
+    padding: 5px 8px;
+  }
+}

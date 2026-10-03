@@ -1,0 +1,76 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.starsRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  display: grid;
+  place-items: center;
+  padding: 2px;
+  border: none;
+  background: none;
+  color: var(--soleil);
+  cursor: pointer;
+}
+
+.star:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--n-700);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.field textarea {
+  padding: 10px 12px;
+  border: 1.5px solid var(--n-200);
+  border-radius: var(--radius-md);
+  font: inherit;
+  font-weight: 400;
+  resize: vertical;
+  outline: none;
+}
+
+.field textarea:focus {
+  border-color: var(--violet);
+}
+
+.error {
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: var(--danger-50);
+  font-size: 14px;
+  color: var(--danger);
+}
+
+.done {
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: var(--succes-50);
+  font-weight: 600;
+  color: var(--succes-700);
+}

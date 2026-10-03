@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 400" role="img" aria-label="Photo de l'appareil indisponible">
-  <rect width="320" height="400" fill="#171c24"/>
-  <g transform="translate(110 96)" fill="none" stroke="#2e333b" stroke-width="3">
-    <rect x="0.5" y="0.5" width="99" height="207" rx="14"/>
-    <rect x="9.5" y="17.5" width="81" height="173" rx="4"/>
-    <line x1="40" y1="9" x2="60" y2="9" stroke-linecap="round"/>
-  </g>
-  <text x="160" y="336" fill="#a0a5ac" font-family="system-ui, sans-serif" font-size="13" text-anchor="middle">Photo à venir</text>
-</svg>

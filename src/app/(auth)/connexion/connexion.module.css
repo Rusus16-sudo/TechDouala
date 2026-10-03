@@ -1,0 +1,250 @@
+/* Formulaire sur blanc à gauche ; à droite (ordinateur), panneau noir avec un vrai produit,
+   dans la continuité du hero de l'accueil. */
+.page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-height: 100dvh;
+  background: var(--blanc);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.logo {
+  margin-bottom: 40px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.logo span {
+  color: var(--violet);
+}
+
+.card h1 {
+  font-size: 34px;
+  letter-spacing: -0.02em;
+}
+
+.lead {
+  margin-bottom: 20px;
+  color: var(--n-600);
+}
+
+.visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: 56px;
+  background: var(--noir);
+  color: var(--blanc);
+}
+
+.visualPhoto {
+  object-fit: contain;
+  padding: 72px 72px 200px;
+  animation: settle 900ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.visualText {
+  position: relative;
+  max-width: 380px;
+}
+
+.visualText strong {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.visualText p {
+  color: rgb(255 255 255 / 0.7);
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+}
+
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+
+  .visual {
+    display: none;
+  }
+
+  .logo {
+    margin-bottom: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visualPhoto {
+    animation: none;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  text-align: left;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.field input {
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1.5px solid var(--n-200);
+  border-radius: var(--radius-md);
+  outline: none;
+}
+
+.field input:focus {
+  border-color: var(--violet);
+  box-shadow: 0 0 0 3px var(--violet-50);
+}
+
+.alert {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background: var(--danger-50);
+  font-size: 14px;
+  color: var(--danger);
+}
+
+.alert svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.back {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--n-600);
+}
+
+.back a:hover {
+  color: var(--violet);
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 4px;
+  border-radius: var(--radius-full);
+  background: var(--n-50);
+  border: 1px solid var(--n-200);
+}
+
+.tabs a {
+  padding: 8px 0;
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--n-600);
+}
+
+.tabs .tabActive {
+  background: var(--blanc);
+  box-shadow: var(--shadow-sm);
+  color: var(--n-900);
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--n-600);
+}
+
+.or {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin: 8px 0;
+  font-size: 13px;
+  color: var(--n-600);
+}
+
+.or::before,
+.or::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--n-200);
+}
+
+.googleForm {
+  width: 100%;
+}
+
+.google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  border: 1.5px solid var(--n-200);
+  border-radius: var(--radius-md);
+  background: var(--blanc);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.google:hover {
+  border-color: var(--n-600);
+}
+
+.sent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 0;
+  color: var(--n-700);
+}
+
+.sent svg {
+  color: var(--succes-700);
+}
+
+.sentTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--n-900);
+}

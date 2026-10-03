@@ -1,0 +1,58 @@
+.group + .group {
+  margin-top: 40px;
+}
+
+.item {
+  border-bottom: 1px solid var(--n-200);
+}
+
+.item summary {
+  position: relative;
+  display: block;
+  padding: 16px 40px 16px 0;
+  font-weight: 500;
+  color: var(--n-900);
+  cursor: pointer;
+  list-style: none;
+}
+
+.item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Signe + / − à droite de la question */
+.item summary::before,
+.item summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--n-600);
+  transition: transform 200ms ease;
+}
+
+.item summary::after {
+  transform: rotate(90deg);
+}
+
+.item[open] summary::after {
+  transform: rotate(0deg);
+}
+
+.item summary:hover {
+  color: var(--violet);
+}
+
+.item p {
+  padding: 0 40px 18px 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item summary::before,
+  .item summary::after {
+    transition: none;
+  }
+}

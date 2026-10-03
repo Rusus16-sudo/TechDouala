@@ -1,0 +1,267 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.bar {
+  position: relative;
+  border-bottom: 1px solid var(--n-200);
+  background: rgb(255 255 255 / 0.92);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 68px;
+}
+
+/* Logotype : le nom seul, « Douala » en violet */
+.logo {
+  flex-shrink: 0;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--n-900);
+}
+
+.logo span {
+  color: var(--violet);
+}
+
+/* Rayons */
+.nav {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: none;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--n-900);
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.navLink:hover,
+.navLink[aria-expanded="true"] {
+  background: var(--n-100);
+}
+
+.navLink[aria-current="page"] {
+  color: var(--violet);
+}
+
+.accent {
+  color: var(--danger);
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.navLink svg {
+  transition: transform 180ms ease;
+}
+
+/* Icônes : recherche, compte, panier */
+.actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: none;
+  color: var(--n-900);
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.icon:hover {
+  background: var(--n-100);
+}
+
+.cartCount {
+  position: absolute;
+  top: 5px;
+  right: 3px;
+  display: grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: var(--radius-full);
+  background: var(--violet);
+  color: var(--blanc);
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Recherche déroulante */
+.searchPanel {
+  border-bottom: 1px solid var(--n-200);
+  background: var(--blanc);
+}
+
+/* Méga-menu */
+.mega {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border-top: 1px solid var(--n-200);
+  border-bottom: 1px solid var(--n-200);
+  background: var(--blanc);
+  box-shadow: var(--shadow-md);
+}
+
+.megaGrid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 0.9fr;
+  gap: 40px;
+  padding-top: 28px;
+  padding-bottom: 32px;
+}
+
+.megaTitle {
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--n-600);
+}
+
+.megaCats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 16px;
+  list-style: none;
+}
+
+.megaCat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 15px;
+  color: var(--n-900);
+}
+
+.megaCat svg {
+  color: var(--n-600);
+}
+
+.megaCat:hover {
+  color: var(--violet);
+}
+
+.megaBrands {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 16px;
+  list-style: none;
+}
+
+.megaBrands a {
+  display: block;
+  padding: 8px 0;
+  font-size: 15px;
+}
+
+.megaBrands a:hover {
+  color: var(--violet);
+}
+
+.megaPromo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+  min-height: 160px;
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  background: var(--noir);
+  color: rgb(255 255 255 / 0.72);
+  font-size: 14px;
+}
+
+.megaPromo strong {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--blanc);
+}
+
+.megaPromo:hover strong {
+  text-decoration: underline;
+}
+
+@media (max-width: 1100px) {
+  .row {
+    gap: 16px;
+  }
+
+  .navLink {
+    padding: 8px 9px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Tablette et mobile : les rayons passent dans la barre du bas et la page Catégories. */
+  .nav,
+  .mega {
+    display: none;
+  }
+
+  .row {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .row {
+    height: 60px;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+}

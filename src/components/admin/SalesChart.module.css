@@ -1,0 +1,117 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.plot {
+  position: relative;
+  height: 240px;
+}
+
+.svg {
+  display: block;
+  outline: none;
+  touch-action: pan-y;
+}
+
+.svg:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.grid {
+  stroke: #EDEFF3;
+  stroke-width: 1;
+}
+
+.yTick,
+.xTick {
+  fill: var(--n-600);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.yTick {
+  text-anchor: end;
+  dominant-baseline: middle;
+}
+
+.xTick {
+  text-anchor: middle;
+}
+
+.area {
+  fill: var(--violet);
+  opacity: 0.1;
+}
+
+.line {
+  fill: none;
+  stroke: var(--violet);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.cross {
+  stroke: var(--n-600);
+  stroke-width: 1;
+}
+
+.dot {
+  fill: var(--violet);
+  stroke: var(--blanc);
+  stroke-width: 2;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px;
+  border: 1px solid var(--n-200);
+  border-radius: var(--radius-md);
+  background: var(--blanc);
+  box-shadow: 0 8px 24px rgb(17 24 39 / 0.12);
+  font-size: 12px;
+  color: var(--n-600);
+  white-space: nowrap;
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+}
+
+.tooltip strong {
+  font-size: 15px;
+  color: var(--n-900);
+}
+
+.table summary {
+  width: fit-content;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--violet);
+  cursor: pointer;
+}
+
+.table table {
+  width: 100%;
+  margin-top: 8px;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table th,
+.table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--n-200);
+  text-align: left;
+}
+
+.table td:not(:first-child),
+.table th:not(:first-child) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}

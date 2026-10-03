@@ -1,0 +1,68 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filters a {
+  padding: 8px 14px;
+  border: 1.5px solid var(--n-200);
+  border-radius: var(--radius-full);
+  background: var(--blanc);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--n-700);
+}
+
+.filters .filterActive {
+  border-color: var(--violet);
+  background: var(--violet);
+  color: var(--blanc);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border-bottom: 1px solid var(--n-200);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 260px;
+  max-width: 720px;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.stars {
+  display: inline-flex;
+  gap: 1px;
+  color: var(--soleil);
+}
+
+.comment {
+  font-size: 15px;
+  line-height: 1.5;
+}

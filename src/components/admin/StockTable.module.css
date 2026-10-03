@@ -1,0 +1,42 @@
+.first td {
+  border-top: 2px solid var(--n-200);
+}
+
+.product {
+  min-width: 200px;
+  vertical-align: top !important;
+  background: var(--blanc);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.stock {
+  width: 88px;
+  min-height: 38px;
+  padding: 0 10px;
+  border: 1.5px solid var(--n-200);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  text-align: right;
+  outline: none;
+}
+
+.stock:focus {
+  border-color: var(--violet);
+}
+
+.changed {
+  border-color: var(--soleil);
+  background: var(--alerte-50);
+}
+
+.publish {
+  margin-right: auto;
+}

@@ -1,0 +1,156 @@
+.footer {
+  margin-top: 96px;
+  padding-top: 64px;
+  background: var(--noir);
+  color: rgb(255 255 255 / 0.66);
+  font-size: 14px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  padding-bottom: 48px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--blanc);
+}
+
+.logo span {
+  color: #A58BFF; /* violet éclairci : lisible sur noir */
+}
+
+.about {
+  max-width: 300px;
+  margin-top: 14px;
+  line-height: 1.6;
+}
+
+.title {
+  margin-bottom: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--blanc);
+}
+
+.links,
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.links a:hover,
+.contact a:hover,
+.legal a:hover {
+  color: var(--blanc);
+}
+
+.contact li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact svg {
+  flex-shrink: 0;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 32px;
+  padding-top: 24px;
+  padding-bottom: 32px;
+  border-top: 1px solid rgb(255 255 255 / 0.12);
+  font-size: 13px;
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  list-style: none;
+}
+
+.pay {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: auto;
+  list-style: none;
+}
+
+.pay li {
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--blanc);
+  color: var(--n-900);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    /* La barre du bas du mobile ne recouvre pas le pied de page. */
+    padding-bottom: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom));
+  }
+
+  /* Au doigt : chaque lien occupe une ligne d'au moins 40 px. */
+  .links,
+  .contact {
+    gap: 0;
+  }
+
+  .links a,
+  .contact a,
+  .legal a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+  }
+
+  .legal {
+    row-gap: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .footer {
+    margin-top: 64px;
+    padding-top: 48px;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .pay {
+    margin-left: 0;
+  }
+}

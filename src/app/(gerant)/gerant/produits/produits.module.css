@@ -1,0 +1,73 @@
+.flash {
+  margin-bottom: 16px;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 240px;
+}
+
+.thumb {
+  position: relative;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--n-50);
+  color: var(--n-600);
+}
+
+.thumbImg {
+  object-fit: contain;
+  padding: 4px;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.name:hover {
+  color: var(--violet);
+}
+
+.product p {
+  font-size: 12px;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Le stock reste un nombre : la couleur ne sert qu'aux deux cas qui appellent une action. */
+.stockLow {
+  color: var(--alerte-700);
+  font-weight: 700;
+}
+
+.stockOut {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.rowActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
