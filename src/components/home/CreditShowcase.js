@@ -19,7 +19,7 @@ export default function CreditShowcase({ phones, others }) {
 
   return (
     <section className={styles.band} aria-labelledby="credit-title">
-      <div className={styles.inner}>
+      <div className={styles.inner} data-reveal>
         <div className={styles.copy}>
           <h2 id="credit-title" className={styles.title}>
             Pars avec ton téléphone pour 40 % du prix.
@@ -91,7 +91,7 @@ export default function CreditShowcase({ phones, others }) {
       </div>
 
       {others.length > 0 && (
-        <ul className={styles.others}>
+        <ul className={styles.others} data-reveal>
           {others.map((o) => (
             <li key={o.title}>
               <Link href={o.href}>

@@ -1,4 +1,10 @@
-/* Accueil : grandes respirations, fond blanc, noir pour le hero et les avis. */
+/* Accueil : une suite de grandes tuiles pleine largeur (blanc, gris « parchemin », noir),
+   titres centrés et larges respirations. */
+
+/* Dernière tuile collée au pied de page (qui garde sa marge ailleurs). */
+.home {
+  margin-bottom: -96px;
+}
 
 .container {
   width: 100%;
@@ -7,128 +13,188 @@
   padding: 0 24px;
 }
 
-.section {
-  margin-top: 72px;
+.tile {
+  padding: 112px 0;
 }
 
-.sectionHead {
+.light {
+  background: var(--blanc);
+}
+
+.parchment {
+  background: var(--n-100);
+}
+
+.dark {
+  background: var(--noir);
+  color: var(--blanc);
+}
+
+/* Deux tuiles de même fond qui se suivent : un filet les sépare. */
+.light + .light,
+.parchment + .parchment {
+  border-top: 1px solid var(--n-200);
+}
+
+/* ---------------------------------------------------------------- En-têtes de tuile */
+.head {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  gap: 12px 24px;
-  margin-bottom: 24px;
+  max-width: 760px;
+  margin: 0 auto 56px;
+  text-align: center;
 }
 
-.sectionTitle {
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-}
-
-.seeAll {
-  margin-left: auto;
-  font-size: 15px;
+.eyebrow {
+  margin-bottom: 10px;
+  font-size: 17px;
   font-weight: 500;
   color: var(--violet);
 }
 
-.seeAll:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.dark .eyebrow {
+  color: #A891FF;
 }
 
-/* ---------------------------------------------------------------- Engagements */
-.reassurance {
+.display {
+  font-size: clamp(32px, 4.4vw, 52px);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.more {
+  margin-top: 18px;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--violet);
+}
+
+.more:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.countdown {
+  margin-top: 20px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+}
+
+a.pill {
+  border-radius: var(--radius-full);
+}
+
+/* ---------------------------------------------------------------- Parcours d'achat */
+.steps {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  padding: 32px 0;
-  border-bottom: 1px solid var(--n-200);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px;
   list-style: none;
 }
 
-.reassurance li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
+.steps li {
+  padding-top: 28px;
+  border-top: 1px solid var(--n-200);
 }
 
-.reassuranceIcon {
-  flex-shrink: 0;
-  margin-top: 1px;
-  color: var(--n-900);
-}
-
-.reassurance strong {
+.stepNum {
   display: block;
-  font-size: 14px;
+  margin-bottom: 20px;
+  font-size: 56px;
   font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  color: var(--n-200);
+  transition: color 300ms ease;
 }
 
-.reassurance p {
-  font-size: 13px;
+.steps li:hover .stepNum {
+  color: var(--violet);
+}
+
+.steps h3 {
+  font-size: 21px;
+  letter-spacing: -0.02em;
+}
+
+.steps p {
+  max-width: 34ch;
+  margin-top: 8px;
+  font-size: 16px;
   color: var(--n-600);
 }
 
-
-/* ---------------------------------------------------------------- Nos univers */
+/* ---------------------------------------------------------------- Nos rayons */
 .universes {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  gap: 20px;
   list-style: none;
 }
 
 .universe {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   height: 100%;
-  padding: 16px 16px 18px;
+  padding: 20px 20px 22px;
   border-radius: var(--radius-xl);
-  background: var(--n-100);
-  transition: background-color 180ms ease;
+  background: var(--blanc);
+  transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 300ms ease;
 }
 
 .universe:hover {
-  background: #EDEDF0;
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgb(17 24 39 / 0.08);
 }
 
 .universeMedia {
   position: relative;
   display: grid;
   place-items: center;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   color: var(--n-700);
 }
 
 .universePhoto {
   object-fit: contain;
-  mix-blend-mode: multiply;
+  filter: drop-shadow(0 12px 18px rgb(0 0 0 / 0.14));
+  transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.universe:hover .universePhoto {
+  transform: scale(1.05);
 }
 
 .universeName {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  text-align: center;
 }
 
 /* ---------------------------------------------------------------- Grilles produits */
 .grid4 {
   display: grid;
-  gap: 32px 20px;
-}
-
-.grid4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 40px 20px;
 }
-
-
-/* ---------------------------------------------------------------- Pourquoi TechDouala */
 
 /* ---------------------------------------------------------------- Actualités */
-.news {
+/* Une ou deux cartes restent centrées au lieu de se caler à gauche. */
+.news,
+.reviewList {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 390px));
+  justify-content: center;
   gap: 20px;
 }
 
@@ -137,7 +203,16 @@
   flex-direction: column;
   overflow: hidden;
   border-radius: var(--radius-xl);
-  background: var(--n-100);
+  background: var(--blanc);
+}
+
+a.newsCard {
+  transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 300ms ease;
+}
+
+a.newsCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgb(17 24 39 / 0.08);
 }
 
 /* Photo entière quel que soit son format (portrait, paysage) ; les bords vides sont comblés
@@ -163,55 +238,43 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding: 20px;
+  padding: 22px 24px 26px;
 }
 
 .newsBody h3 {
-  font-size: 18px;
+  font-size: 19px;
 }
 
 .newsBody p {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--n-700);
 }
 
 .newsCta {
-  margin-top: 4px;
-  font-size: 14px;
+  margin-top: 6px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--violet);
 }
 
-a.newsCard:hover .newsCta {
-  text-decoration: underline;
-}
-
 /* ---------------------------------------------------------------- Avis */
-.reviews {
-  margin-top: 88px;
-  padding: 64px 0;
-  background: var(--noir);
-  color: var(--blanc);
-}
-
 .reviewList {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 40px;
-  margin-top: 32px;
   list-style: none;
 }
 
 .reviewList li {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
+  padding: 28px;
+  border-radius: var(--radius-xl);
+  background: #161618;
 }
 
 .reviewStars {
   display: flex;
   gap: 2px;
-  color: var(--succes);
+  color: var(--soleil);
 }
 
 .reviewList blockquote {
@@ -243,38 +306,23 @@ a.newsCard:hover .newsCta {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgb(255 255 255 / 0.14);
+  background: rgb(255 255 255 / 0.12);
   font-size: 14px;
   font-weight: 600;
 }
 
 /* ---------------------------------------------------------------- Conseil */
-/* Dernier bloc de l'accueil : collé au pied de page, comme la bande newsletter de la maquette. */
-.advice {
-  margin-top: 88px;
-  margin-bottom: -96px;
-  background: var(--n-100);
-}
-
-/* Sans avis, le bloc conseil suit directement une section blanche. */
-.reviews + .advice {
-  margin-top: 0;
-}
-
 .adviceInner {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
   gap: 48px;
-  min-height: 300px;
-  padding-top: 48px;
-  padding-bottom: 48px;
 }
 
-.adviceText p {
+.adviceText p:not(.eyebrow) {
   max-width: 440px;
-  margin: 12px 0 24px;
-  font-size: 16px;
+  margin: 16px 0 28px;
+  font-size: 17px;
   color: var(--n-700);
 }
 
@@ -282,13 +330,13 @@ a.newsCard:hover .newsCta {
   position: relative;
   display: flex;
   justify-content: center;
-  height: 240px;
+  height: 260px;
 }
 
 .collageItem {
   position: relative;
-  width: 180px;
-  height: 220px;
+  width: 190px;
+  height: 230px;
   margin: 0 -18px;
   overflow: hidden;
   border-radius: var(--radius-xl);
@@ -296,40 +344,31 @@ a.newsCard:hover .newsCta {
   box-shadow: var(--shadow-md);
 }
 
+/* translate et non transform : l'animation d'entrée garde la main sur transform. */
 .collageItem:nth-child(2) {
   z-index: 1;
-  transform: translateY(20px);
+  translate: 0 22px;
 }
 
 .collagePhoto {
   object-fit: contain;
-  padding: 16px;
+  padding: 18px;
 }
 
 /* ---------------------------------------------------------------- Catalogue vide */
 .soon {
-  padding: 48px 32px;
-  border-radius: var(--radius-xl);
-  background: var(--n-100);
   text-align: center;
-}
-
-.soon h2 {
-  font-size: 24px;
 }
 
 .soon p {
   max-width: 460px;
-  margin: 8px auto 0;
+  margin: 16px auto 0;
+  font-size: 17px;
   color: var(--n-700);
 }
 
 /* ---------------------------------------------------------------- Responsive */
 @media (max-width: 1100px) {
-  .reassurance {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .universes {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -340,53 +379,58 @@ a.newsCard:hover .newsCta {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .steps,
   .news,
-  .reviewList {
+  .reviewList,
+  .adviceInner {
     grid-template-columns: 1fr;
   }
 
-  .adviceInner {
-    grid-template-columns: 1fr;
+  .steps {
+    gap: 32px;
   }
 }
 
 @media (max-width: 640px) {
+  .home {
+    margin-bottom: -64px;
+  }
+
   .container {
     padding-left: 16px;
     padding-right: 16px;
   }
 
-  .section {
-    margin-top: 48px;
+  .tile {
+    padding: 72px 0;
   }
 
-  .sectionTitle {
-    font-size: 22px;
+  .head {
+    margin-bottom: 36px;
   }
 
-  .seeAll {
-    font-size: 14px;
+  .eyebrow,
+  .more {
+    font-size: 15px;
   }
 
-
-  .reassurance {
-    gap: 16px;
-    padding: 24px 0;
+  .stepNum {
+    margin-bottom: 12px;
+    font-size: 44px;
   }
 
-  .reassurance li {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+  .center {
+    margin-top: 40px;
   }
 
   /* Rayons : défilement horizontal au pouce */
   .universes {
-    grid-auto-columns: 42%;
+    grid-auto-columns: 46%;
     grid-auto-flow: column;
     grid-template-columns: none;
+    gap: 12px;
     margin: 0 -16px;
-    padding: 0 16px 4px;
+    padding: 4px 16px 12px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
@@ -396,31 +440,43 @@ a.newsCard:hover .newsCta {
     scroll-snap-align: start;
   }
 
+  .universe {
+    padding: 14px 14px 16px;
+  }
+
+  .universeName {
+    font-size: 15px;
+  }
+
   .grid4 {
-    gap: 24px 12px;
+    gap: 28px 12px;
   }
 
-  .reviews,
-  .advice {
-    margin-top: 56px;
-  }
-
-  .advice {
-    margin-bottom: -64px;
+  .reviewList li {
+    padding: 22px;
   }
 
   .collage {
-    height: 190px;
+    height: 200px;
   }
 
   .collageItem {
-    width: 130px;
-    height: 170px;
+    width: 132px;
+    height: 172px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .universe {
+  .universe,
+  .universePhoto,
+  a.newsCard,
+  .stepNum {
     transition: none;
+  }
+
+  .universe:hover,
+  a.newsCard:hover,
+  .universe:hover .universePhoto {
+    transform: none;
   }
 }

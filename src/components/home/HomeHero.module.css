@@ -1,0 +1,382 @@
+/* Hero de l'accueil : grand bandeau sombre, texte centré, téléphones en éventail sur un halo violet. */
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: min(940px, calc(100svh - 106px)); /* l'écran, moins la barre d'infos et l'en-tête */
+  overflow: hidden;
+  background: radial-gradient(120% 70% at 50% 0%, #14102A 0%, var(--noir) 62%);
+  color: var(--blanc);
+  text-align: center;
+}
+
+/* Halo : se pose à l'ouverture, puis glisse doucement vers la souris (variables posées en JS). */
+.glow {
+  position: absolute;
+  inset: -10% -20%;
+  z-index: -1;
+  background: radial-gradient(closest-side at 50% 62%, rgb(106 64 255 / 0.34), rgb(106 64 255 / 0.08) 55%, transparent);
+  transform: translate(var(--mx, 0px), var(--my, 0px));
+  transition: transform 1200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: glowIn 1600ms cubic-bezier(0.28, 0.11, 0.32, 1) both;
+  pointer-events: none;
+}
+
+.body {
+  width: 100%;
+  max-width: 900px;
+  padding: 64px 24px 0;
+}
+
+.eyebrow {
+  font-size: 16px;
+  font-weight: 500;
+  color: #A891FF;
+}
+
+.title {
+  margin-top: 14px;
+  font-size: clamp(40px, 5.8vw, 72px);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.title span {
+  color: #A891FF;
+}
+
+.lead {
+  max-width: 46ch;
+  margin: 20px auto 0;
+  font-size: clamp(17px, 1.7vw, 21px);
+  line-height: 1.45;
+  color: rgb(255 255 255 / 0.7);
+  text-wrap: balance;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.ctaMain,
+.ctaGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: var(--radius-full);
+  font-size: 17px;
+  font-weight: 500;
+  transition: background-color 160ms ease, border-color 160ms ease, transform 120ms ease;
+}
+
+.ctaMain {
+  background: var(--violet);
+  color: var(--blanc);
+}
+
+.ctaMain:hover {
+  background: var(--violet-600);
+}
+
+.ctaGhost {
+  border: 1px solid rgb(255 255 255 / 0.28);
+  color: var(--blanc);
+}
+
+.ctaGhost:hover {
+  border-color: rgb(255 255 255 / 0.7);
+}
+
+.ctaMain:active,
+.ctaGhost:active {
+  transform: scale(0.97);
+}
+
+.ctaMain:focus-visible,
+.ctaGhost:focus-visible,
+.caption:focus-visible,
+.marquee a:focus-visible {
+  outline: 2px solid var(--blanc);
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------------------- Téléphones en éventail
+   La position de base passe par translate / rotate / scale, l'animation par transform :
+   les deux se cumulent sans se gêner. */
+.stage {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: clamp(300px, 34vw, 440px);
+  margin-top: 48px;
+}
+
+.phone {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: clamp(190px, 22vw, 300px);
+  aspect-ratio: 4 / 5;
+  translate: -50% 0;
+  animation:
+    phoneIn 1200ms cubic-bezier(0.2, 0.8, 0.2, 1) both,
+    float 7s ease-in-out 1700ms infinite;
+  animation-delay: 450ms, 1650ms;
+}
+
+.p0 {
+  z-index: 2;
+}
+
+.p1,
+.p2 {
+  z-index: 1;
+  scale: 0.8;
+}
+
+.p1 {
+  translate: -118% 4%;
+  rotate: -8deg;
+  animation-delay: 620ms, 2400ms;
+}
+
+.p2 {
+  translate: 18% 4%;
+  rotate: 8deg;
+  animation-delay: 760ms, 3100ms;
+}
+
+.shot {
+  object-fit: contain;
+  filter: drop-shadow(0 28px 44px rgb(0 0 0 / 0.55)) drop-shadow(0 0 60px rgb(106 64 255 / 0.18));
+  transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.phone:hover .shot {
+  transform: translateY(-10px);
+}
+
+/* Reflet au sol sous les téléphones */
+.floor {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  width: min(640px, 80%);
+  height: 60px;
+  translate: -50% 0;
+  background: radial-gradient(closest-side, rgb(168 145 255 / 0.22), transparent);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+.caption {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 10px;
+  margin-top: 36px;
+  padding: 0 24px;
+  font-size: 15px;
+  color: rgb(255 255 255 / 0.62);
+  transition: color 160ms ease;
+}
+
+.caption strong {
+  font-weight: 500;
+  color: var(--blanc);
+}
+
+.caption span:first-of-type {
+  font-variant-numeric: tabular-nums;
+}
+
+.caption:hover {
+  color: var(--blanc);
+}
+
+/* ---------------------------------------------------------------- Défilé des marques */
+.marquee {
+  width: 100%;
+  margin-top: auto;
+  padding: 22px 0;
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+/* Le défilé reste en pied de bandeau, avec toujours un espace au-dessus sur un petit écran. */
+.caption {
+  margin-bottom: 48px;
+}
+
+.body:has(+ .marquee) {
+  padding-bottom: 72px;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+.group {
+  display: flex;
+  flex-shrink: 0;
+  list-style: none;
+}
+
+.group a {
+  display: block;
+  padding: 0 40px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  color: rgb(255 255 255 / 0.5);
+  transition: color 160ms ease;
+}
+
+.group a:hover {
+  color: var(--blanc);
+}
+
+/* ---------------------------------------------------------------- Entrées */
+.rise {
+  animation: rise 1000ms cubic-bezier(0.28, 0.11, 0.32, 1) var(--d, 0ms) both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+
+@keyframes glowIn {
+  from {
+    opacity: 0;
+    scale: 0.85;
+  }
+}
+
+@keyframes phoneIn {
+  from {
+    opacity: 0;
+    transform: translateY(90px);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow,
+  .phone,
+  .rise,
+  .track {
+    animation: none;
+  }
+
+  .glow,
+  .shot {
+    transition: none;
+  }
+
+  .glow {
+    transform: none;
+  }
+
+  .phone:hover .shot {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: calc(100svh - 120px);
+  }
+
+  .body {
+    padding: 56px 16px 0;
+  }
+
+  .eyebrow {
+    font-size: 14px;
+  }
+
+  .lead {
+    margin-top: 18px;
+  }
+
+  .ctas {
+    margin-top: 28px;
+  }
+
+  .ctaMain,
+  .ctaGhost {
+    min-height: 48px;
+    padding: 0 22px;
+    font-size: 16px;
+  }
+
+  .stage {
+    height: 280px;
+    margin-top: 40px;
+  }
+
+  .phone {
+    width: 46vw;
+    max-width: 220px;
+  }
+
+  .p1 {
+    translate: -108% 6%;
+  }
+
+  .p2 {
+    translate: 8% 6%;
+  }
+
+  .caption {
+    margin-top: 28px;
+    font-size: 14px;
+  }
+
+  .marquee {
+    padding: 16px 0;
+  }
+
+  .group a {
+    padding: 0 24px;
+    font-size: 18px;
+  }
+}

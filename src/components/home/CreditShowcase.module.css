@@ -1,7 +1,6 @@
 /* Bandeau noir du crédit 40/60 : le moment fort de l'accueil après le hero */
 .band {
-  margin-top: 96px;
-  padding: 96px 0 56px;
+  padding: 112px 0 64px;
   background: var(--noir);
   color: var(--blanc);
 }
@@ -236,8 +235,7 @@
 
 @media (max-width: 900px) {
   .band {
-    margin-top: 64px;
-    padding: 64px 0 40px;
+    padding: 72px 0 40px;
   }
 
   .inner {
