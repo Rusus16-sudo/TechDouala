@@ -140,13 +140,23 @@
   background: var(--n-100);
 }
 
+/* Photo entière quel que soit son format (portrait, paysage) ; les bords vides sont comblés
+   par la même photo, floutée, plutôt que de couper le sujet. */
 .newsImg {
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--n-900);
 }
 
-.newsImg img {
+.newsBackdrop {
   object-fit: cover;
+  filter: blur(24px) brightness(0.8);
+  transform: scale(1.15);
+}
+
+.newsPhoto {
+  object-fit: contain;
 }
 
 .newsBody {

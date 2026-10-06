@@ -195,7 +195,8 @@ export default async function Home() {
                 <>
                   {n.image_url && (
                     <div className={styles.newsImg}>
-                      <Image src={n.image_url} alt="" fill sizes="(max-width: 768px) 100vw, 33vw" />
+                      <Image src={n.image_url} alt="" fill sizes="(max-width: 768px) 100vw, 33vw" className={styles.newsBackdrop} />
+                      <Image src={n.image_url} alt="" fill sizes="(max-width: 768px) 100vw, 33vw" className={styles.newsPhoto} />
                     </div>
                   )}
                   <div className={styles.newsBody}>
